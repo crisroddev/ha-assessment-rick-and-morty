@@ -1,0 +1,29 @@
+{
+  "name": "ha-assessment",
+  "version": "1.0.0",
+  "description": "Housing Anywhere assessment for Full Stack Role",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crodriguez85/ha-assessment-rick-and-morty.git"
+  },
+  "author": "Cristian Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crodriguez85/ha-assessment-rick-and-morty/issues"
+  },
+  "homepage": "https://github.com/crodriguez85/ha-assessment-rick-and-morty#readme",
+  "dependencies": {
+    "concurrently": "^4.1.1",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
