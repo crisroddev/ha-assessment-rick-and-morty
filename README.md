@@ -12,7 +12,7 @@ ReactJs
 ## Instalation
 ```
 Root --> npm install
-cd client && npm install
+cd frontend && npm install
 ```
 
 ## Run the App
