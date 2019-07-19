@@ -10,3 +10,12 @@ ReactJs
 ```
 
 ## Instalation
+```
+Root --> npm install
+cd client && npm install
+```
+
+## Run the App
+```
+npm run dev
+```
