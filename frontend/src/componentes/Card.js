@@ -36,11 +36,11 @@ export default class Cardbox extends Component {
 
 const CharacterWrapper = styled.div`
  img {
-  transition: transform .2s
+  transition: transform .2s;
  }
  &:hover {
    img {
-    transform: scale(1.5)
+    transform: scale(1.6)
    }
 
  }
