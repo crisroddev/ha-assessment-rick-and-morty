@@ -5,12 +5,14 @@ import "../App.css"
 
 function Characters() {
   const [characters, setCharacters]  = useState([]);
+  const [page, setPage ] = useState([]);
 
   useEffect(() => {
     axios.get('/characters')
       .then((res) => {
         setCharacters(res.data.results)
-        console.log(setCharacters)
+        setPage(res.data.info)
+        
       })
       .catch((err) => {
         console.log(err)
