@@ -20,6 +20,10 @@ function Characters() {
   return (
     <div className="py-5 back-color">
       <div className="container">
+      <div className="text-center mb-5">
+        <button className="btn btn-success pagination-buttons mr-3">Back</button>
+        <button className="btn btn-success pagination-buttons">Next</button>
+      </div>
         <div className="row">
           {characters.map(character => <CardBox
             key={character.id}

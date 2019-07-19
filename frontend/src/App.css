@@ -34,3 +34,10 @@ li.list {
 span {
   color: #ef6637;
 }
+
+.pagination-buttons {
+  width: 200px;
+  background-color: #ef6637;
+  border: none
+}
+
