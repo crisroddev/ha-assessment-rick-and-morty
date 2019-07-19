@@ -1,13 +1,16 @@
-import React, {  useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import CardBox from './Card'
 import "../App.css"
 
 function Characters() {
+  const [characters, setCharacters]  = useState([]);
 
   useEffect(() => {
     axios.get('/characters')
       .then((res) => {
-        console.log(res.data)
+        setCharacters(res.data.results)
+        console.log(setCharacters)
       })
       .catch((err) => {
         console.log(err)
@@ -15,7 +18,16 @@ function Characters() {
   }, [])
 
   return (
-      <div>Hi</div>
+    <div className="py-5 back-color">
+      <div className="container">
+        <div className="row">
+          {characters.map(character => <CardBox
+            key={character.id}
+            character={character}
+          />)}
+        </div>
+      </div>
+    </div>
   )
 }
 
