@@ -28,5 +28,5 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.listen(port, () => {
-    console.log(`server listening on localhost:${port}`)
+    console.log(`server listening on localhost:${port}/characters`)
 });
