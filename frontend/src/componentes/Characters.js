@@ -13,7 +13,7 @@ export default class Characters extends Component {
   }
 
   componentDidMount() {
-      axios.get('/Characters')
+      axios.get('/characters')
       .then((res) => {
           this.setState({
               characters: res.data.results,
