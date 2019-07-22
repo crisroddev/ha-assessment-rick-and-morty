@@ -1,40 +1,69 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 import CardBox from './Card'
-import "../App.css"
 
-function Characters() {
-  const [characters, setCharacters]  = useState([]);
-  const [page, setPage ] = useState([]);
+export default class Characters extends Component {
+  constructor(props) {
+      super(props);
+      this.state =  {
+          characters: [],
+          nextPage: "",
+          prevPage: "",
+      }
+  }
 
-  useEffect(() => {
-    axios.get('/characters')
+  componentDidMount() {
+      axios.get('/Characters')
       .then((res) => {
-        setCharacters(res.data.results)
-        setPage(res.data.info)
-        
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+          this.setState({
+              characters: res.data.results,
+              nextPage: res.data.info.next,
+              prevPage: res.data.info.prev
+          })
+      });
+  }
 
-  return (
-    <div className="py-5 back-color">
-      <div className="container">
-      <div className="text-center mb-5">
-        <button className="btn btn-success pagination-buttons mr-3">Back</button>
-        <button className="btn btn-success pagination-buttons">Next</button>
-      </div>
-        <div className="row">
-          {characters.map(character => <CardBox
-            key={character.id}
-            character={character}
-          />)}
-        </div>
-      </div>
-    </div>
-  )
+  handleNextPage = () => {
+     axios.get(this.state.nextPage)
+     .then((res) => {
+         this.setState({
+              isLoading: false,
+              characters: res.data.results,
+              nextPage: res.data.info.next,
+              prevPage: res.data.info.prev
+         })
+     })
+  }
+
+  handlePrevPage = () => {
+      axios.get(this.state.nextPage)
+      .then((res) => {
+          this.setState({
+               characters: res.data.results,
+               nextPage: res.data.info.next,
+               prevPage: res.data.info.prev
+          })
+      })
+   }
+   render() {
+     const characters = this.state.characters;
+    
+     return (
+       <div className="py-5 back-color">
+         <div className="container">
+         <div className="text-center mb-5">
+           <button onClick={this.handlePrevPage} className="btn btn-success pagination-buttons mr-3">Back</button>
+           <button onClick={this.handleNextPage}className="btn btn-success pagination-buttons">Next</button>
+         </div>
+           <div className="row">
+             {characters.map(character => <CardBox
+               key={character.id}
+               character={character}
+             />)}
+           </div>
+         </div>
+       </div>
+     )
+   }
 }
 
-export default Characters;
