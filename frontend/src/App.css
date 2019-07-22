@@ -17,7 +17,8 @@ nav {
   color: var(--nameColor);
 }
 .char-description {
-  color: var(--textColor)
+  color: var(--textColor);
+  list-style: none
 }
 li.list {
   list-style: none;
@@ -28,7 +29,10 @@ li.list {
 }
 
 .card-footer:last-child {
-  height: 200px;
+  height: 250px;
+}
+.list-characters{
+  padding: 0;
 }
 
 span {
@@ -39,5 +43,13 @@ span {
   width: 200px;
   background-color: #ef6637;
   border: none
+
+  
 }
 
+@media screen and (max-width: 600px) {
+  .pagination-buttons{
+    margin: 0;
+    padding: 0;
+  }
+}
